@@ -1,0 +1,15 @@
+# Gradle wrapper files
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Ignore the rest of the gradle directory
+gradle/
+
+# Gradle files
+.gradle/
+
+# IntelliJ IDEA files
+.idea/
+
+# Build directories
+build/
