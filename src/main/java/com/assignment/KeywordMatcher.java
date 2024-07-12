@@ -3,8 +3,6 @@ package com.assignment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,7 +19,7 @@ public class KeywordMatcher {
         long startTime = System.currentTimeMillis();
         KeywordLoaderUtility.readKeywordFromFile("sample-mit-wordlist.txt", trie);
         long endTime = System.currentTimeMillis();
-        logger.info("Inserting all words to Trie data structure with all 10k keywords took  "+(endTime-startTime));
+        logger.info("Inserting all words to Trie data structure with 10k keywords took "+(endTime-startTime)+"ms");
         System.out.println("The program runs until the user decides to exit. Enter exit to terminate at any point.");
 
         Scanner inputScanner = new Scanner(System.in);
@@ -72,7 +70,3 @@ public class KeywordMatcher {
         inputScanner.close();
     }
 }
-
-
-
-
