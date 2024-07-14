@@ -10,7 +10,7 @@ A Java application to find matching words from an input file using a Trie data s
 - [Running the Project](#running-the-project)
 - [Usage](#usage)
 - [Running Unit Test](#running-unit-test)
-- [Perfomance Test](#performance-test)
+- [Performance Test](#performance-tests)
 
 ## Requirements
 - Java 11 or higher
