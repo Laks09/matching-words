@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,6 +15,7 @@ import java.util.List;
  */
 public class WordUtility {
     private static final Logger logger = LoggerFactory.getLogger(WordUtility.class.getName());
+    public static final String REGEX = "\\s+";
 
     /**
      * Finds all words in the given file that are present in the Trie.
@@ -29,7 +29,7 @@ public class WordUtility {
         try {
             Files.readAllLines(filePath).forEach(record -> {
                 StringBuilder matchedWords = new StringBuilder();
-                String[] words = record.split("\\s+");
+                String[] words = record.split(REGEX);
                 String prefix = "";
                 for(String word : words) {
                     if(trie.search(word)) {

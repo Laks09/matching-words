@@ -17,6 +17,7 @@ import java.util.Collections;
  */
 public class KeywordLoaderUtility {
     private static final Logger logger = LoggerFactory.getLogger(KeywordLoaderUtility.class.getName());
+    public static final String FILE_PREFIX = "jar:";
 
     /**
      * Reads keywords from the specified file and inserts them into the provided {@link Trie}.
@@ -31,7 +32,7 @@ public class KeywordLoaderUtility {
             // the below changes was added to test the code. FileSystems is required when we are trying to use a file present in the jar.
             // The else is used by the unit test.
             Path path;
-            if ( url != null && url.toString().startsWith("jar:")) {
+            if ( url != null && url.toString().startsWith(FILE_PREFIX)) {
                 path = FileSystems.newFileSystem(url.toURI(), Collections.emptyMap()).getPath(file);
             } else {
                 path = Paths.get(url.toURI());

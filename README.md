@@ -10,6 +10,7 @@ A Java application to find matching words from an input file using a Trie data s
 - [Running the Project](#running-the-project)
 - [Usage](#usage)
 - [Running Unit Test](#running-unit-test)
+- [Perfomance Test](#performance-test)
 
 ## Requirements
 - Java 11 or higher
@@ -22,7 +23,8 @@ git clone https://github.com/Laks09/matching-words.git
 cd matching-words
 ```
 ## Building the Project
-To build the project, use the Gradle wrapper included in the repository. You do not need to have Gradle installed on your machine.
+To build the project, use the Gradle wrapper included in the repository. You do not need to have Gradle installed on your machine. 
+Note: all gradle commands to need to be from the root of the project directory
 
 On Unix-based systems (Linux, macOS), use:
 ```shell script
@@ -94,3 +96,33 @@ On Windows, use:
 gradlew.bat test
 ```
 Gradle will execute the unit tests and provide a summary of the test results. The detailed test reports can be found in the build/reports/tests/test directory.
+
+## Performance Tests
+Below is the performance of the solution when running against a last data set. 
+```plain Text
+java -jar build/libs/matching-words-1.0-SNAPSHOT.jar
+16:56:24.422 [main] INFO com.assignment.KeywordMatcher - Inserting all words to Trie data structure with 10k keywords took 74ms
+The program runs until the user decides to exit. Enter exit to terminate at any point.
+Enter the input file: 
+/Users/lakshmi/Downloads/sample-text.txt
+16:56:42.663 [main] INFO com.assignment.KeywordMatcher - Processing input file of size 19906732 bytes took 1248 ms to complete
+Enter Output format: Terminal | File 
+File
+16:56:50.100 [main] INFO com.assignment.WordUtility - Output written to file '/Users/lakshmi/workspace/matching-words/output.txt' successfully.
+
+```
+
+The sample test file contents were generated using https://www.kaggle.com/datasets/nikitricky/random-english-sentences and repeating them until the size of the file was around 20MB
+The result from the above looks something like this
+```plain Text
+quick, brown, fox, over, the, lazy
+tries, to, be, cool, by, saying, that, she, likes, all, the, same, things, that
+purple, pig, and, a, green, a, in, the, middle, of, the, night, and, ended, up
+saw, a, blue, worm, shake, hands, with, a
+song, can, make, or, a, day, if, they, let, it, get, to
+it, is, better, to, just, walk, away, from, things, and, go, back, to, them, later, when, in, a, better, frame, of
+a, list, of, random, sentences, is, harder, than, initially, thought, it, would
+all, be, unique, together, until, we, we, are, all, the
+like, stay, away, from
+...
+```
